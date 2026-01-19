@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 50% 96%;
+    --foreground: 350 30% 25%;
+
+    --card: 30 40% 98%;
+    --card-foreground: 350 30% 25%;
+
+    --popover: 30 40% 98%;
+    --popover-foreground: 350 30% 25%;
+
+    --primary: 350 70% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 25 60% 90%;
+    --secondary-foreground: 350 30% 25%;
+
+    --muted: 30 30% 92%;
+    --muted-foreground: 350 20% 45%;
+
+    --accent: 15 80% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 350 30% 85%;
+    --input: 350 30% 85%;
+    --ring: 350 70% 65%;
+
+    --radius: 1rem;
+
+    /* Custom pig theme colors */
+    --pig-pink: 350 70% 75%;
+    --pig-blush: 350 60% 85%;
+    --pig-nose: 350 50% 65%;
+    --cream: 40 40% 95%;
+    --coral: 15 80% 65%;
+    --peach: 25 70% 85%;
+    --sparkle: 45 100% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-baloo antialiased;
+  }
+}
+
+@layer components {
+  /* Floating animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-30px); }
+  }
+
+  @keyframes bounce-gentle {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.05); }
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  @keyframes wiggle-fast {
+    0%, 100% { transform: rotate(-5deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+  }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1) rotate(180deg); }
+  }
+
+  @keyframes pop-in {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-10px) rotate(-5deg); }
+    40% { transform: translateX(10px) rotate(5deg); }
+    60% { transform: translateX(-10px) rotate(-5deg); }
+    80% { transform: translateX(10px) rotate(5deg); }
+  }
+
+  @keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+  }
+
+  @keyframes tail-wag {
+    0%, 100% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+  }
+
+  @keyframes slide-up {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slide-down {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fade-in-scale {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes flame-flicker {
+    0%, 100% { transform: scaleY(1) scaleX(1); opacity: 1; }
+    25% { transform: scaleY(1.1) scaleX(0.9); opacity: 0.9; }
+    50% { transform: scaleY(0.9) scaleX(1.1); opacity: 1; }
+    75% { transform: scaleY(1.15) scaleX(0.85); opacity: 0.85; }
+  }
+
+  @keyframes rainbow-shift {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+
+  @keyframes heart-beat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.15); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.1); }
+  }
+
+  @keyframes confetti-fall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-cursor {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: hsl(var(--primary)); }
+  }
+
+  @keyframes grow-shrink {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes bounce-in {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.25); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes balloon-float {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    33% { transform: translateY(-15px) rotate(2deg); }
+    66% { transform: translateY(-8px) rotate(-1deg); }
+  }
+
+  @keyframes gift-shake {
+    0%, 100% { transform: rotate(0deg); }
+    10% { transform: rotate(-8deg); }
+    20% { transform: rotate(8deg); }
+    30% { transform: rotate(-8deg); }
+    40% { transform: rotate(8deg); }
+    50% { transform: rotate(0deg); }
+  }
+
+  .animate-float { animation: float 3s ease-in-out infinite; }
+  .animate-float-slow { animation: float-slow 4s ease-in-out infinite; }
+  .animate-bounce-gentle { animation: bounce-gentle 2s ease-in-out infinite; }
+  .animate-wiggle { animation: wiggle 0.5s ease-in-out infinite; }
+  .animate-wiggle-fast { animation: wiggle-fast 0.3s ease-in-out infinite; }
+  .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+  .animate-sparkle { animation: sparkle 1.5s ease-in-out infinite; }
+  .animate-pop-in { animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; }
+  .animate-shake { animation: shake 0.5s ease-in-out; }
+  .animate-blink { animation: blink 3s ease-in-out infinite; }
+  .animate-tail-wag { animation: tail-wag 0.3s ease-in-out infinite; }
+  .animate-slide-up { animation: slide-up 0.6s ease-out forwards; }
+  .animate-slide-down { animation: slide-down 0.6s ease-out forwards; }
+  .animate-fade-in-scale { animation: fade-in-scale 0.5s ease-out forwards; }
+  .animate-flame { animation: flame-flicker 0.3s ease-in-out infinite; }
+  .animate-rainbow { animation: rainbow-shift 3s linear infinite; }
+  .animate-heart-beat { animation: heart-beat 1s ease-in-out infinite; }
+  .animate-confetti { animation: confetti-fall 3s linear forwards; }
+  .animate-grow-shrink { animation: grow-shrink 1s ease-in-out infinite; }
+  .animate-spin-slow { animation: spin-slow 8s linear infinite; }
+  .animate-bounce-in { animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; }
+  .animate-balloon { animation: balloon-float 3s ease-in-out infinite; }
+  .animate-gift-shake { animation: gift-shake 2s ease-in-out infinite; }
+
+  /* Utility classes */
+  .text-shadow-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--coral)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .pig-shadow {
+    filter: drop-shadow(0 10px 20px hsl(var(--pig-pink) / 0.3));
+  }
+}
